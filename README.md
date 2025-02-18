@@ -5,12 +5,17 @@ An AI model to analyze your scans :)
 Our AI-powered medical imaging model leverages the Claude API and GPT-Neo to analyze X-ray, CT, and MRI scans with precision. Designed to assist radiologists, it enhances diagnostic accuracy by identifying patterns, anomalies, and potential conditions in medical images. With cutting-edge machine learning, it streamlines workflow and supports informed decision-making in healthcare.
 
 ## Dependencies and APIs
-### **1. Claude API**
-### **2. PyTorch**
-### **3. numpy**
-### **4. requests**
-### **5. cv2**
-### **6. 
+#### **1. Claude API**
+#### **2. PyTorch**
+#### **3. numpy**
+#### **4. requests**
+#### **5. cv2**
+#### **6. PIL (Python Image Library)**
+#### **7. Django**
+#### **8. Transformers (from hugging face)**
+#### **9. os**
+#### **10. Custom Functions: analyze_image_claude and MedicalImage model.**
+
 ## Installation Guide 
 
 ### **1. Create a Virtual Environment (PLEASE)**
@@ -36,3 +41,6 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ```bash
 pip install django-core-files-storage python-dotenv
 ```
+
+## Contributor
+### **1. Miraj Adhikari, Github: https://github.com/MirajAdhikari**
