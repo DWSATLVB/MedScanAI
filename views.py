@@ -10,10 +10,8 @@ from .utils import analyze_image_claude
 import numpy as np
 import os
 
-# Ensure the correct device (GPU if available, else CPU)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Load CLIP model and processor (for image feature extraction)
 clip_model_name = "openai/clip-vit-base-patch16"  # Pretrained CLIP model
 clip_model = CLIPModel.from_pretrained(clip_model_name).to(device)
 clip_processor = CLIPProcessor.from_pretrained(clip_model_name)
@@ -40,16 +38,12 @@ def get_image_features(image_path):
 def generate_diagnosis_with_gpt_neo(image_features):
     """Generate diagnosis using GPT-Neo based on extracted image features"""
     try:
-        # Prepare a prompt based on image features
         prompt = f"Given the following features of a medical image, provide a diagnosis: {image_features.mean().item()}"
 
-        # Tokenize the prompt
         inputs = tokenizer(prompt, return_tensors="pt").to(device)
 
-        # Generate text from GPT-Neo
         output = model.generate(**inputs, max_length=100, num_return_sequences=1)
 
-        # Decode and return the diagnosis text
         diagnosis = tokenizer.decode(output[0], skip_special_tokens=True)
         return diagnosis
     except Exception as e:
@@ -75,10 +69,8 @@ def upload_image(request):
 
             diagnosis_gpt_neo = generate_diagnosis_with_gpt_neo(image_features)
 
-            # Combine the results from Claude and GPT-Neo (or you can choose one)
             final_diagnosis = f"{diagnosis_claude} | GPT-Neo Diagnosis: {diagnosis_gpt_neo}"
 
-            # Save result to database
             medical_image = MedicalImage.objects.create(image=image, diagnosis=final_diagnosis)
             return redirect('result', pk=medical_image.pk)
 
