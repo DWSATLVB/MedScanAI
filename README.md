@@ -42,5 +42,3 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 pip install django-core-files-storage python-dotenv
 ```
 
-## Contributor
-### **1. Miraj Adhikari, Github: https://github.com/MirajAdhikari**
