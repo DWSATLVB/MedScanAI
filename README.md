@@ -1,9 +1,6 @@
 # MedScanAI
 An AI model to analyze your scans :)
 
-## Description
-Our AI-powered medical imaging model leverages the Claude API and GPT-Neo to analyze X-ray, CT, and MRI scans with precision. Designed to assist radiologists, it enhances diagnostic accuracy by identifying patterns, anomalies, and potential conditions in medical images. With cutting-edge machine learning, it streamlines workflow and supports informed decision-making in healthcare.
-
 ## Dependencies and APIs
 #### **1. Claude API**
 #### **2. PyTorch**
